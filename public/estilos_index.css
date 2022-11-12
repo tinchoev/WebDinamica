@@ -1,0 +1,169 @@
+/* ================= Media Query  ===========================*/
+@media (max-width: 600px){
+   .contenedor{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+   .contenedorFlex{
+    order:1;
+    width: 100%;
+    justify-content: center;
+   }
+   #left-triangle {order: 2; }
+   #right-triangle{order: 3; }
+}
+
+/*--------------- ETIQUETAS ------------------*/
+body{
+    /*width: 100%;*/
+    background-image: url(./imagenes/home-fondo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin-bottom: 0;
+}
+button{
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    background-color: rgba(53, 50, 50, 0.815);
+    transition: width 1s,height 1s;
+    box-shadow: 0px 6px 10px 5px rgba(0, 0, 0, .6);
+}
+button:hover{
+    width: 160px;
+    height: 160px;
+}
+
+/*--------------- CLASES ------------------*/
+.contenedor{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color:  rgba(223, 111, 7, 0.623);
+    width: 100%;
+    border: 3px solid orange;
+    border-radius: 30px;
+}
+.contenedorFlex{
+    height: 500px;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;    
+}
+.circulos{
+    background-color:hwb(251 7% 10% / 0.849) ;
+    border-radius: 50%;
+    /*Usamos px para que en ningun momento se modifique su valor*/
+    width: 300px;
+    height: 300px;
+    display: flex;
+    transition: width 1.5s,height 1.5s, transform 1.5s;
+    box-shadow: 0px 6px 10px 5px rgba(0, 0, 0, .6);
+}
+.circulos:hover{
+    width: 350px;
+    height: 350px;
+    background-color:  hwb(131 7% 10% / 0.849);
+    cursor: pointer;
+}
+.circulos:active{
+    width: 300px;
+    height: 300px;
+    background-color:  hwb(235 7% 10% / 0.849);
+    cursor: pointer;
+}
+
+.pieDePagina{
+    background-color: rgb(255, 84, 5);
+    height: 400px;
+    text-align: center;
+    margin-top: 10%;
+    border-top: 3px solidrgb(255, 84, 5);
+    border-top-left-radius:30px;
+    border-top-right-radius:30px;
+    /*Efecto Scroll*/
+    opacity: 0;
+}
+@keyframes mostrar {
+    100%{
+        opacity: 1;
+        -webkit-animation: forwards;
+    }  
+    to{
+        opacity: 1;
+    }
+}
+.copyright{
+    display: flex;
+    justify-content: center;
+    display: inline-block;
+}
+
+/*--------------- ID ------------------*/
+#imagenContenido{
+    width: 1cm;
+    height: 1cm;
+    border-radius: 30px;
+}
+#imagenDePie{
+    width: 5cm;
+    height: 5cm;
+}
+#titulo{
+    display: block;
+    margin: auto;
+    width: 300px;
+}
+#marginOf{
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 1.3em;
+}
+
+
+/* ===========================  BOTON Izquierdo ======================================= */
+#left-triangle {
+    width: 0;
+    height: 0;
+    border-right: 50px solid hwb(251 7% 10% / 0.849);
+    border-bottom: 50px solid transparent;
+    border-top: 50px solid transparent;
+    transition: 1s;
+}
+#left-triangle:hover {
+    border-right: 75px solid hwb(131 7% 10% / 0.849);
+    border-bottom: 75px solid transparent;
+    border-top: 75px solid transparent;
+    cursor: pointer;
+}
+#left-triangle:active {
+    border-right: 50px solid hwb(251 7% 10% / 0.849);
+    border-bottom: 30px solid transparent;
+    border-top: 30px solid transparent;
+    transition: 0.3s;
+}
+
+/* ===========================  BOTON Derecho ======================================= */
+#right-triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid hwb(251 7% 10% / 0.849);
+    border-bottom: 50px solid transparent;
+    border-top: 50px solid transparent;
+    transition: 1s;
+}
+#right-triangle:hover {
+    border-left: 75px solid hwb(131 7% 10% / 0.849);
+    border-bottom: 75px solid transparent;
+    border-top: 75px solid transparent;
+    cursor: pointer;
+}
+#right-triangle:active {
+    border-left: 50px solid hwb(251 7% 10% / 0.849);
+    border-bottom: 30px solid transparent;
+    border-top: 30px solid transparent;
+    transition: 0.3s;
+}
+
+
