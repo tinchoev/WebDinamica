@@ -50,38 +50,55 @@ function cargaPrincipal(){
 	});
 };
 
-function cargaDeTabla(cabezas, j) {
 
-	cabezas[j].addEventListener('click', function () {
-		//Guardo la ventana actual INDEX.html en una variable
-		let ventanaIndex = window;
-		const ventanaCuadro = window.open("/api/battle");
+
+function cargaDeTabla(cabezas,j) {
+
+	 cabezas[j].addEventListener('click', function () {
+		
+	// 	//Guardo la ventana actual INDEX.html en una variable
+		const ventanaCuadro = window.open('./cuadro.html');
 		ventanaCuadro.addEventListener('DOMContentLoaded',function(){
-			//le paso la ventana a la otra ventana cuadro.html
-			ventanaCuadro.mostrarElemento(j,ventanaIndex);
+		let v = window;
+	// 		//le paso la ventana a la otra ventana cuadro.html
+		let nombre="";
+		switch(j){
+			case 0: nombre = "Goku";break;
+			case 1: nombre = "Vegetta";break;
+			case 2: nombre = "Gohan";break;
+			case 3: nombre = "Freezer";break;
+			case 4: nombre = "Cell";break;
+			
+
+		}	
+			ventanaCuadro.mostrarElemento(v,nombre);
 			
 		});
-	});
+	 })
 };
 
-function mostrarElemento(posicion,ventanaIndex){
+function mostrarElemento(v,j){
+	console.log("Entre", v.close);
 	//Cierra la vetana index y carga el cudro
-	ventanaIndex.close();
+	v.close;
 	//Cargamos el json
-	console.log(posicion)
+	
 	const xhttp = new XMLHttpRequest();
-  	xhttp.open('GET','battlesData.json',true);
+  	xhttp.open('GET',`http://localhost:3000/api/battle?name=${j}`,true);
 	xhttp.send();
 	xhttp.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200){
 			let dtosBatallas = JSON.parse(this.responseText);
-			let indice = dtosBatallas[posicion];
-			cargarDatos(indice);
+			
+			cargarDatos(dtosBatallas[0]);
 		}
 	};
 };
 
-function cargarDatos(indice){
+
+ function cargarDatos(indice){
+	console.log(indice.id);
+	
 	let divTitulo = document.getElementById('tituloCabecera');
 	let imagen = document.getElementById('imagen');
 	imagen.innerHTML = `<img src="${indice.picture}" alt="" id="imagen">`
@@ -130,3 +147,4 @@ function mostrarDescripcion(){
 		});
 	});
 };
+
