@@ -1,5 +1,6 @@
 [{
-    "id":"Batallas De Goku",
+    "name": "Goku",
+	"id":"Batallas De Goku",
 	"picture":"./imagenes/Imagen Cuadro/gokuCompleto.png",
     "infoDeFila": [
         {
@@ -42,10 +43,10 @@
 		"link": "https://www.youtube.com/watch?v=rrOyO9uLlZk&ab_channel=WORDDELANIME",
 		"descripcion": "Goku y Boo pequeño pelean en el planeta sagrado"
 		}
-	],
-	"name": "Goku"   
+	]  
 },
 {
+	"name": "Vegetta",
     "id":"Batallas De Vegeta" ,
 	"picture":"./imagenes/Imagen Cuadro/vegeta.png",
     "infoDeFila": [
@@ -73,10 +74,10 @@
 		"link": "https://www.youtube.com/watch?v=2zQ3vDjlM0w&ab_channel=Mu%C3%B1equitosTv",
 		"descripcion": "Majin Vegeta se enfrenta a Majin Boo en su versión inicial"
 		}
-    ],
-	"name": "Vegetta"
+    ]
 },
 {
+	"name": "Gohan",
     "id":"Batallas De Gohan",
 	"picture":"./imagenes/Imagen Cuadro/gohan.png",
     "infoDeFila":[
@@ -104,11 +105,11 @@
 		"link": "https://www.youtube.com/watch?v=TdqcuGUouB4&ab_channel=EntretenimientoChingon",
 		"descripcion": "Gohan místico y Super-Boo se enfrentan"
         }
-    ],
-	"name": "Gohan"
+    ]
 },
 {
-    "id":"Batallas De Freezer",
+    "name": "Freezer",
+	"id":"Batallas De Freezer",
 	"picture":"./imagenes/Imagen Cuadro/freezer.webp",
     "infoDeFila": [
 		{
@@ -135,11 +136,11 @@
 		"link": "https://www.youtube.com/watch?v=WUsvyU2UMuc&ab_channel=Alta%C3%AFr",
 		"descripcion": "Mecha Freezer se enfrenta a Trunks del futuro"
 		}
-    ],
-	"name": "Freezer"
+    ]
 },
 {
-    "id":"Batallas De Cell",
+    "name": "Cell",
+	"id":"Batallas De Cell",
 	"picture":"./imagenes/Imagen Cuadro/cell3.png",
     "infoDeFila": [
 		{
@@ -166,8 +167,5 @@
 		"link": "https://www.youtube.com/watch?v=CxD3rdRgb50&ab_channel=Manurex22",
 		"descripcion": "Gohan y Cell se enfrentan en el torneo de Cell"
 		}
-	],
-	"name": "Cell"
-}
-
-]
+	]
+}]
