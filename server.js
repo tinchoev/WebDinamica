@@ -1,9 +1,7 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-let funcionJs = require("./public/principal-cuadros.js");
 let battles = require("./public/battlesData.json");
-const { type } = require("os");
 app.use(express.static('public'));
 app.use(express.static('public/imagenes'));
 
@@ -21,6 +19,7 @@ O otro ejemplo http://localhost:3000/api/personajes/batallas/Goku?ordenar=CapiTu
 app.get("/api/personajes/batallas/:id", (req, res) => {
     //Obtenemos la URL original
     let url = req.params.id;
+    console.log(battles);
     let resultado = battles.filter(personaje => personaje.name == url);
 
     if (resultado.length === 0) {
@@ -31,29 +30,27 @@ app.get("/api/personajes/batallas/:id", (req, res) => {
     }
     res.send(resultado);
 });
-//http://localhost:3000/api/personajes/batallas?name=Goku
-app.get("/api/personajes/batallas", (req, res) => {
-    let urlName = req.query.name;
-    let resultado = battles.filter(personaje => personaje.name == urlName);
 
-    if (resultado.length === 0) {
-        return res.status(404).send(`Error 404: No se encontro el personaje ${url}`);
-    }
-    res.send(resultado);
-});
 //Buscar varios recursos
 app.get("/api/personajes/batallas", (req, res) => {
     let urlName = req.query.name;
+    let ordenar = req.query.ordenar;
     let cantidad = req.query.cantidad;
-    let from = req.query.from;
-    let jsonDePersonaje = battles.filter(personaje => personaje.name == urlName);
-    let resultado;
+    let desde = req.query.from;
+    let resultado = battles.filter(pj => pj.name == urlName);
 
-    if (jsonDePersonaje.length === 0) {
+    if (resultado.length === 0) 
         return res.status(404).send(`Error 404: No se encontro el personaje ${url}`);
-    }
-    for (i = from; i <= cantidad; i++) {
-        resultado += jsonDePersonaje.infoDeFila[i];
+    if (ordenar != undefined) {
+        resultado = ordenamiento(resultado, ordenar);
+    } else if (cantidad != undefined && desde != undefined) {
+        let infoDeFila = resultado[0].infoDeFila;
+        let aux = [];
+        while (desde >= 0 && desde < infoDeFila.length && desde+1 <= cantidad) {
+            aux.push(infoDeFila[desde]);
+            desde++;
+        }
+        resultado[0].infoDeFila = aux;
     }
     
     res.send(resultado);
@@ -108,7 +105,6 @@ function ordenamiento(r, tipo) {
         default:
             return r; break;
     }
-
 }
 
 //------------------------------------- SERVIDOR -------------------------------------------

@@ -82,7 +82,6 @@ function mostrarElemento(v,j){
 	//Cierra la vetana index y carga el cudro
 	v.close;
 	//Cargamos el json
-	
 	const xhttp = new XMLHttpRequest();
   	xhttp.open('GET',`http://localhost:3000/api/personajes/batallas?name=${j}`,true);
 	xhttp.send();
@@ -147,4 +146,3 @@ function mostrarDescripcion(){
 		});
 	});
 };
-
