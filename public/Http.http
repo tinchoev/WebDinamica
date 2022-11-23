@@ -1,0 +1,44 @@
+
+#--------------------------------EJERCICIO 1 -------------------------------------
+POST http://localhost:3000/api/personajes/addBatalla?name=Goku HTTP/1.1
+Content-Type: application/json
+
+{
+    "integrantes": "Goku vs Mr.Sattan",
+	"inicio": "12124",
+	"fin": "1231241",
+	"ganador": "Mr.Sattan",
+	"link": "----",
+	"descripcion": "Mr Sattan llega al ultra instinto"
+}
+
+###
+POST http://localhost:3000/api/personajes/addBatalla?name=Freezer HTTP/1.1
+Content-Type: application/json
+
+{
+    "integrantes": "Freezer vs Freezer Futuro",
+	"inicio": "99",
+	"fin": "101",
+	"ganador": "Freezer",
+	"link": "----",
+	"descripcion": "Freezer se encuentra con su yo del futuro"
+}
+
+###
+#==================================== EJERCICIO 2 ======================================================
+GET http://localhost:3000/api/personajes/batallas?name=Goku HTTP/1.1
+###
+GET http://localhost:3000/api/personajes/batallas?name=MirtaLegrand HTTP/1.1
+
+
+### 
+# ---------------------------------- EJERCICO 3-------------------------------------
+GET http://localhost:3000/api/personajes/batallas?name=Goku&cantidad=2&from=1 HTTP/1.1
+
+###
+GET http://localhost:3000/api/personajes/batallas?name=Cell&cantidad=1&from=0 HTTP/1.1
+
+###
+GET http://localhost:3000/api/personajes/batallas?name=Vegetta&cantidad=1&from=23342 HTTP/1.1
+
